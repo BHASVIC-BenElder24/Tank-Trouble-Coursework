@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class playertankbody extends Actor
+public class PlayerTankBody extends Actor
 {
     /**
      * Act - do whatever the playertankbody wants to do. This method is called whenever
@@ -14,12 +14,31 @@ public class playertankbody extends Actor
      */
     public void act()
     {
-        if (Greenfoot.isKeyDown("left"))
+        PlayerTankBody body1 = new PlayerTankBody();
+        int tankx = getX();
+        int tanky = getY();
+        if (Greenfoot.isKeyDown("a"))
         {
-            turnTowards(playertankbody.getX()-1, playertankbody.getY());
+            turnTowards(tankx-2, tanky);
+            move(2);
+        }
+        if (Greenfoot.isKeyDown("d"))
+        {
+            turnTowards(tankx+2, tanky);
+            move(2);
+        }
+        if (Greenfoot.isKeyDown("s"))
+        {
+            turnTowards(tankx, tanky+2);
+            move(2);
+        }
+        if (Greenfoot.isKeyDown("w"))
+        {
+            turnTowards(tankx, tanky-2);
+            move(2);
         }
     }
-    public playertankbody()
+    public PlayerTankBody()
     {
         GreenfootImage image = getImage();
         image.scale(45, 45);
