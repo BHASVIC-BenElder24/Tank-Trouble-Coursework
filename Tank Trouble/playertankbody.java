@@ -14,7 +14,6 @@ public class PlayerTankBody extends Actor
      */
     public void act()
     {
-        PlayerTankBody body1 = new PlayerTankBody();
         int tankx = getX();
         int tanky = getY();
         if (Greenfoot.isKeyDown("a"))

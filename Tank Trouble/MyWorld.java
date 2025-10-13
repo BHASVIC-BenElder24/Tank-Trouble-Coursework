@@ -28,5 +28,10 @@ public class MyWorld extends World
         addObject(body, 100, 100);
         PlayerTankTurret turret = new PlayerTankTurret(body);
         addObject(turret, body.getX(), body.getY());
+        ////////////////////////////////////////////////////////enemies
+        EnemyTankBody enemyBody = new EnemyTankBody();
+        addObject(enemyBody, 200, 200);
+        EnemyTankTurret enemyTurret = new EnemyTankTurret(enemyBody, body);
+        addObject(enemyTurret, enemyBody.getX(), enemyBody.getY());
     }
 }
