@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.MouseInfo;
 /**
  * Write a description of class PlayerShot here.
  * 
@@ -8,33 +8,27 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class PlayerShot extends Actor
 {
-    private PlayerTankTurret turret;
-    PlayerShot shot1 = new PlayerShot();
-    PlayerShot shot2 = new PlayerShot();
-    PlayerShot shot3 = new PlayerShot();
-    PlayerShot shot4 = new PlayerShot();
-    PlayerShot shot5 = new PlayerShot();
-    int shotCounter = 0;
-    /**
-     * Act - do whatever the PlayerShot wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    boolean hasFacedMouse = false;
     public void act()
     {
-        if(Greenfoot.isKeyDown("left"))
+        move(6);
+        if(hasFacedMouse == false)
         {
-            if (shotCounter == 0)
-            {
-                
-            }
+            faceMouse();
+            hasFacedMouse = true;
         }
-        move(10);
     }
-    public PlayerShot(PlayerTankTurret turret)
+    public PlayerShot()
     {
-        this.turret = turret;
         GreenfootImage image = getImage();
         image.scale(75, 75);
         setImage(image);
+    }
+    public void faceMouse()
+    {
+        MouseInfo pointer = Greenfoot.getMouseInfo();
+        int mouseX = pointer.getX();
+        int mouseY = pointer.getY();
+        turnTowards(mouseX, mouseY);
     }
 }

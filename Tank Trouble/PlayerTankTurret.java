@@ -14,8 +14,10 @@ public class PlayerTankTurret extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private PlayerTankBody body;
+    private PlayerTankTurret turret;
     public void act()
     {
+        int shotCounter = 0;
         // Cite https://www.mrstewartslessons.com/move_actor_with_mouse.html for tutorial
         MouseInfo pointer = Greenfoot.getMouseInfo();
         if (pointer != null)
@@ -27,6 +29,13 @@ public class PlayerTankTurret extends Actor
         if (body != null)
         {
             setLocation(body.getX(), body.getY());
+        }
+        if(Greenfoot.isKeyDown("space"))
+        {
+            if (shotCounter == 0)
+            {
+                getWorld().addObject(new PlayerShot(), getX()-5, getY());
+            }
         }
     }
     public PlayerTankTurret(PlayerTankBody body)
