@@ -14,7 +14,17 @@ public class EnemyShot extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        move(6);
+        if(getX() <= 5 || getX() >= getWorld().getWidth() -5)
+        {
+            int angle = getRotation();
+            setRotation(180 - angle);
+        }
+        if(getY() <= 5 || getY() >= getWorld().getHeight() -5)
+        {
+            int angle = getRotation();
+            setRotation(-angle);
+        }
     }
     public EnemyShot()
     {

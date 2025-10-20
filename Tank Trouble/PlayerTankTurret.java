@@ -15,9 +15,11 @@ public class PlayerTankTurret extends Actor
      */
     private PlayerTankBody body;
     private PlayerTankTurret turret;
+    SimpleTimer shotTimer = new SimpleTimer();
+    SimpleTimer destroyTimer = new SimpleTimer();
+    int shotCounter = 0;
     public void act()
     {
-        int shotCounter = 0;
         // Cite https://www.mrstewartslessons.com/move_actor_with_mouse.html for tutorial
         MouseInfo pointer = Greenfoot.getMouseInfo();
         if (pointer != null)
@@ -30,13 +32,21 @@ public class PlayerTankTurret extends Actor
         {
             setLocation(body.getX(), body.getY());
         }
-        if(Greenfoot.isKeyDown("space"))
+        if(Greenfoot.mouseClicked(null))
         {
-            if (shotCounter == 0)
+            if (shotCounter <= 5 && shotTimer.millisElapsed() > 250)
             {
                 getWorld().addObject(new PlayerShot(), getX()-5, getY());
+                shotCounter++;
+                shotTimer.mark();
+            }
+            destroyTimer.mark();
+            if (destroyTimer.millisElapsed() > 4000)
+            {
+                shotCounter--;
             }
         }
+        
     }
     public PlayerTankTurret(PlayerTankBody body)
     {

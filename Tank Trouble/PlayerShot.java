@@ -9,6 +9,7 @@ import greenfoot.MouseInfo;
 public class PlayerShot extends Actor
 {
     boolean hasFacedMouse = false;
+    SimpleTimer destroyTimer = new SimpleTimer();
     public void act()
     {
         move(6);
@@ -17,12 +18,27 @@ public class PlayerShot extends Actor
             faceMouse();
             hasFacedMouse = true;
         }
+        if(getX() <= 5 || getX() >= getWorld().getWidth() -5)
+        {
+            int angle = getRotation();
+            setRotation(180 - angle);
+        }
+        if(getY() <= 5 || getY() >= getWorld().getHeight() -5)
+        {
+            int angle = getRotation();
+            setRotation(-angle);
+        }
+        if(destroyTimer.millisElapsed() > 4000)
+        {
+            getWorld().removeObject(this);
+        }
     }
     public PlayerShot()
     {
         GreenfootImage image = getImage();
         image.scale(75, 75);
         setImage(image);
+        destroyTimer.mark();
     }
     public void faceMouse()
     {
