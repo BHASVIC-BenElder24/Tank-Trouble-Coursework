@@ -9,10 +9,6 @@ import greenfoot.MouseInfo;
  */
 public class PlayerTankTurret extends Actor
 {
-    /**
-     * Act - do whatever the playertankturret wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     private PlayerTankBody body;
     private PlayerTankTurret turret;
     SimpleTimer shotTimer = new SimpleTimer();
@@ -22,6 +18,7 @@ public class PlayerTankTurret extends Actor
     SimpleTimer destroyTimer4 = new SimpleTimer();
     SimpleTimer destroyTimer5 = new SimpleTimer();
     int shotCounter = 0;
+    boolean dead = false;
     public void act()
     {
         // Cite https://www.mrstewartslessons.com/move_actor_with_mouse.html for tutorial
@@ -32,7 +29,7 @@ public class PlayerTankTurret extends Actor
             int mouseY = pointer.getY();
             turnTowards(mouseX, mouseY);
         }
-        if (body != null)
+        if (body != null && dead == false)
         {
             setLocation(body.getX(), body.getY());
         }
@@ -90,27 +87,15 @@ public class PlayerTankTurret extends Actor
         {
             shotCounter--;
         }
-        //reset timers
-        //if(destroyTimer1.millisElapsed() > 3500 && (!(shotCounter >= 1)))
-        //{
-        //    destroyTimer1.mark();
-        //}
-        //if(destroyTimer2.millisElapsed() > 3500 && (!(shotCounter >= 2)))
-        //{
-        //    destroyTimer2.mark();
-        //}
-        //if(destroyTimer3.millisElapsed() > 3500 && (!(shotCounter >= 3)))
-        //{
-        //    destroyTimer3.mark();
-        //}
-        //if(destroyTimer4.millisElapsed() > 3500 && (!(shotCounter >= 4)))
-        //{
-        //    destroyTimer4.mark();
-        //}
-        //if(destroyTimer5.millisElapsed() > 3500 && (!(shotCounter >= 5)))
-        //{
-        //    destroyTimer5.mark();
-        //}
+        ////////////////////////////////////////////////detect hits
+        EnemyShot eShot = (EnemyShot) getOneIntersectingObject(EnemyShot.class);
+        if (eShot != null)
+        {
+            getWorld().removeObject(eShot);
+            getWorld().removeObject(body);
+            getWorld().removeObject(this);
+            dead = true;
+        }
     }
     public PlayerTankTurret(PlayerTankBody body)
     {

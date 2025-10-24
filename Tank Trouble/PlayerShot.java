@@ -12,7 +12,7 @@ public class PlayerShot extends Actor
     SimpleTimer destroyTimer = new SimpleTimer();
     public void act()
     {
-        move(6);
+        move(5);
         if(hasFacedMouse == false)
         {
             faceMouse();
@@ -28,7 +28,7 @@ public class PlayerShot extends Actor
             int angle = getRotation();
             setRotation(-angle);
         }
-        if(destroyTimer.millisElapsed() > 4000)
+        if(destroyTimer.millisElapsed() > 3000)
         {
             getWorld().removeObject(this);
         }

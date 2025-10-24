@@ -16,26 +16,27 @@ public class PlayerTankBody extends Actor
     {
         int tankx = getX();
         int tanky = getY();
-        if (Greenfoot.isKeyDown("a"))
+        if (Greenfoot.isKeyDown("a") && (!(Greenfoot.isKeyDown("s"))))
         {
             turnTowards(tankx-2, tanky);
-            move(2);
+            move(3);
         }
-        if (Greenfoot.isKeyDown("d"))
+        if (Greenfoot.isKeyDown("d") && (!(Greenfoot.isKeyDown("s"))))
         {
             turnTowards(tankx+2, tanky);
-            move(2);
+            move(3);
         }
         if (Greenfoot.isKeyDown("s"))
         {
             turnTowards(tankx, tanky+2);
-            move(2);
+            move(3);
         }
-        if (Greenfoot.isKeyDown("w"))
+        if (Greenfoot.isKeyDown("w") && (!(Greenfoot.isKeyDown("d") || (Greenfoot.isKeyDown("a")))))
         {
             turnTowards(tankx, tanky-2);
-            move(2);
+            move(3);
         }
+        // Do other combinations
     }
     public PlayerTankBody()
     {

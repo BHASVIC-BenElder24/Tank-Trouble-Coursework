@@ -15,8 +15,11 @@ public class EnemyTankBody extends Actor
      */
     public void act()
     {
-        turnTowards(body.getX()+90, body.getY()-90);
-        move(1);
+        if (body != null)
+        {
+            turnTowards(body.getX()+90, body.getY()-90);
+            move(1);
+        }
     }
     public EnemyTankBody(PlayerTankBody body)
     {

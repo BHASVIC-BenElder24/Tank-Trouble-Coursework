@@ -8,13 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EnemyShot extends Actor
 {
-    /**
-     * Act - do whatever the EnemyShot wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private PlayerTankBody body;
+    boolean hasFacedPlayer = false;
+    SimpleTimer destroyTimer = new SimpleTimer();
     public void act()
     {
-        move(6);
+        move(4);
         if(getX() <= 5 || getX() >= getWorld().getWidth() -5)
         {
             int angle = getRotation();
@@ -25,11 +24,27 @@ public class EnemyShot extends Actor
             int angle = getRotation();
             setRotation(-angle);
         }
+        if(destroyTimer.millisElapsed() > 2500)
+        {
+            getWorld().removeObject(this);
+        }
+        if(hasFacedPlayer == false)
+        {
+            facePlayer();
+            hasFacedPlayer = true;
+        }
     }
-    public EnemyShot()
+    public EnemyShot(PlayerTankBody body)
     {
+        this.body = body;
         GreenfootImage image = getImage();
         image.scale(75, 75);
         setImage(image);
+    }
+    public void facePlayer()
+    {
+        int playerX = body.getX();
+        int playerY = body.getY();
+        turnTowards(playerX, playerY);
     }
 }

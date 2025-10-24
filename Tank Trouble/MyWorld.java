@@ -15,7 +15,7 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
+        super(800, 600, 1);
         prepare();
     }
     /**
@@ -29,9 +29,19 @@ public class MyWorld extends World
         PlayerTankTurret turret = new PlayerTankTurret(body);
         addObject(turret, body.getX(), body.getY());
         ////////////////////////////////////////////////////////enemies
-        EnemyTankBody enemyBody = new EnemyTankBody(body);
-        addObject(enemyBody, 200, 200);
-        EnemyTankTurret enemyTurret = new EnemyTankTurret(enemyBody, body);
-        addObject(enemyTurret, enemyBody.getX(), enemyBody.getY());
+        EnemyTankBody enemyBody1 = new EnemyTankBody(body);
+        addObject(enemyBody1, 300, 200);
+        EnemyTankTurret enemyTurret1 = new EnemyTankTurret(enemyBody1, body);
+        addObject(enemyTurret1, enemyBody1.getX(), enemyBody1.getY());
+        
+        EnemyTankBody enemyBody2 = new EnemyTankBody(body);
+        addObject(enemyBody2, 400, 200);
+        EnemyTankTurret enemyTurret2 = new EnemyTankTurret(enemyBody2, body);
+        addObject(enemyTurret2, enemyBody2.getX(), enemyBody2.getY());
+        
+        EnemyTankBody enemyBody3 = new EnemyTankBody(body);
+        addObject(enemyBody3, 500, 200);
+        EnemyTankTurret enemyTurret3 = new EnemyTankTurret(enemyBody3, body);
+        addObject(enemyTurret3, enemyBody3.getX(), enemyBody3.getY());
     }
 }
