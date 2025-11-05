@@ -16,27 +16,66 @@ public class PlayerTankBody extends Actor
     {
         int tankx = getX();
         int tanky = getY();
-        if (Greenfoot.isKeyDown("a") && (!(Greenfoot.isKeyDown("s"))))
+        int directionx = 0;
+        int directiony = 0;
+        
+        if (Greenfoot.isKeyDown("w"))
         {
-            turnTowards(tankx-2, tanky);
-            move(3);
+            directiony++;
         }
-        if (Greenfoot.isKeyDown("d") && (!(Greenfoot.isKeyDown("s"))))
+        if (Greenfoot.isKeyDown("a"))
         {
-            turnTowards(tankx+2, tanky);
-            move(3);
+            directionx--;
         }
         if (Greenfoot.isKeyDown("s"))
         {
-            turnTowards(tankx, tanky+2);
-            move(3);
+            directiony--;
         }
-        if (Greenfoot.isKeyDown("w") && (!(Greenfoot.isKeyDown("d") || (Greenfoot.isKeyDown("a")))))
+        if (Greenfoot.isKeyDown("d"))
         {
-            turnTowards(tankx, tanky-2);
-            move(3);
+            directionx++;
         }
-        // Do other combinations
+        
+        if (directiony == 1 && (!(directionx == 1 || directionx == -1)))
+        {
+            setRotation(270);
+            move(4);
+        }
+        if (directiony == 1 && directionx == 1)
+        {
+            setRotation(315);
+            move(4);
+        }
+        if (directionx == 1 && (!(directiony == 1 || directiony == -1)))
+        {
+            setRotation(0);
+            move(4);
+        }
+        if (directionx == 1 && directiony == -1)
+        {
+            setRotation(45);
+            move(4);
+        }
+        if (directiony == -1 && (!(directionx == 1 || directionx == -1)))
+        {
+            setRotation(90);
+            move(4);
+        }
+        if (directiony == -1 && directionx == -1)
+        {
+            setRotation(135);
+            move(4);
+        }
+        if (directionx == -1 && (!(directiony == 1 || directiony == -1)))
+        {
+            setRotation(180);
+            move(4);
+        }
+        if (directionx == -1 && directiony == 1)
+        {
+            setRotation(225);
+            move(4);
+        }
     }
     public PlayerTankBody()
     {
