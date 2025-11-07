@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EnemyTankBody extends Actor
 {
+    private EnemyTankBody enemyBody;
     private PlayerTankBody body;
     /**
      * Act - do whatever the EnemyTankBody wants to do. This method is called whenever
@@ -15,6 +16,12 @@ public class EnemyTankBody extends Actor
      */
     public void act()
     {
+        PlayerShot shot = (PlayerShot) getOneIntersectingObject(PlayerShot.class);
+        if (shot != null)
+        {
+            getWorld().removeObject(shot);
+            getWorld().removeObject(this);
+        }
         if (body != null)
         {
             turnTowards(body.getX()+90, body.getY()-90);
@@ -25,7 +32,7 @@ public class EnemyTankBody extends Actor
     {
         this.body = body;
         GreenfootImage image = getImage();
-        image.scale(45, 45);
+        image.scale(36, 31);
         setImage(image);
     }
 }

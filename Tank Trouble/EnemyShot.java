@@ -38,7 +38,7 @@ public class EnemyShot extends Actor
     {
         this.body = body;
         GreenfootImage image = getImage();
-        image.scale(75, 75);
+        image.scale(15, 5);
         setImage(image);
     }
     public void facePlayer()

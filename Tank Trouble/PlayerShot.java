@@ -36,7 +36,7 @@ public class PlayerShot extends Actor
     public PlayerShot()
     {
         GreenfootImage image = getImage();
-        image.scale(75, 75);
+        image.scale(15, 5);
         setImage(image);
         destroyTimer.mark();
     }

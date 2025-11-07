@@ -29,9 +29,17 @@ public class PlayerTankTurret extends Actor
             int mouseY = pointer.getY();
             turnTowards(mouseX, mouseY);
         }
-        if (body != null && dead == false)
+        if (body != null)
         {
-            setLocation(body.getX(), body.getY());
+            if (getWorld().getObjects(body.getClass()).contains(body))
+            {
+                setLocation(body.getX(), body.getY());
+            }
+            else
+            {
+                getWorld().removeObject(this);
+                dead = true;
+            }
         }
         if(Greenfoot.mouseClicked(null))
         {
@@ -86,15 +94,6 @@ public class PlayerTankTurret extends Actor
         if(destroyTimer5.millisElapsed() > 4000 && shotCounter >= 5)
         {
             shotCounter--;
-        }
-        ////////////////////////////////////////////////detect hits
-        EnemyShot eShot = (EnemyShot) getOneIntersectingObject(EnemyShot.class);
-        if (eShot != null)
-        {
-            getWorld().removeObject(eShot);
-            getWorld().removeObject(body);
-            getWorld().removeObject(this);
-            dead = true;
         }
     }
     public PlayerTankTurret(PlayerTankBody body)

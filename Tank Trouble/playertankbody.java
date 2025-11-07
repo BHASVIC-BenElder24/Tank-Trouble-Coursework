@@ -14,10 +14,15 @@ public class PlayerTankBody extends Actor
      */
     public void act()
     {
-        int tankx = getX();
-        int tanky = getY();
         int directionx = 0;
         int directiony = 0;
+        
+        EnemyShot eShot = (EnemyShot) getOneIntersectingObject(EnemyShot.class);
+        if (eShot != null)
+        {
+            getWorld().removeObject(eShot);
+            getWorld().removeObject(this);
+        }
         
         if (Greenfoot.isKeyDown("w"))
         {
@@ -80,7 +85,7 @@ public class PlayerTankBody extends Actor
     public PlayerTankBody()
     {
         GreenfootImage image = getImage();
-        image.scale(45, 45);
+        image.scale(36, 31);
         setImage(image);
     }
 }

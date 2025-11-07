@@ -18,17 +18,17 @@ public class EnemyTankTurret extends Actor
      */
     public void act()
     {
-        PlayerShot shot = (PlayerShot) getOneIntersectingObject(PlayerShot.class);
-        if (shot != null)
+        if (enemyBody != null)
         {
-            getWorld().removeObject(shot);
-            getWorld().removeObject(enemyBody);
-            getWorld().removeObject(this);
-            dead = true;
-        }
-        if (enemyBody != null && dead == false)
-        {
-            setLocation(enemyBody.getX(), enemyBody.getY());
+            if (getWorld().getObjects(enemyBody.getClass()).contains(enemyBody))
+            {
+                setLocation(enemyBody.getX(), enemyBody.getY());
+            }
+            else
+            {
+                getWorld().removeObject(this);
+                dead = true;
+            }
         }
         if (body != null && dead == false)
         {
