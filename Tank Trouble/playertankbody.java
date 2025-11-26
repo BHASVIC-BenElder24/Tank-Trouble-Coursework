@@ -12,10 +12,12 @@ public class PlayerTankBody extends Actor
      * Act - do whatever the playertankbody wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    int moveSpeed = 4;
     public void act()
     {
         int directionx = 0;
         int directiony = 0;
+        checkForWall();
         
         EnemyShot eShot = (EnemyShot) getOneIntersectingObject(EnemyShot.class);
         if (eShot != null)
@@ -44,42 +46,42 @@ public class PlayerTankBody extends Actor
         if (directiony == 1 && (!(directionx == 1 || directionx == -1)))
         {
             setRotation(270);
-            move(4);
+            move(moveSpeed);
         }
         if (directiony == 1 && directionx == 1)
         {
             setRotation(315);
-            move(4);
+            move(moveSpeed);
         }
         if (directionx == 1 && (!(directiony == 1 || directiony == -1)))
         {
             setRotation(0);
-            move(4);
+            move(moveSpeed);
         }
         if (directionx == 1 && directiony == -1)
         {
             setRotation(45);
-            move(4);
+            move(moveSpeed);
         }
         if (directiony == -1 && (!(directionx == 1 || directionx == -1)))
         {
             setRotation(90);
-            move(4);
+            move(moveSpeed);
         }
         if (directiony == -1 && directionx == -1)
         {
             setRotation(135);
-            move(4);
+            move(moveSpeed);
         }
         if (directionx == -1 && (!(directiony == 1 || directiony == -1)))
         {
             setRotation(180);
-            move(4);
+            move(moveSpeed);
         }
         if (directionx == -1 && directiony == 1)
         {
             setRotation(225);
-            move(4);
+            move(moveSpeed);
         }
     }
     public PlayerTankBody()
@@ -87,5 +89,40 @@ public class PlayerTankBody extends Actor
         GreenfootImage image = getImage();
         image.scale(36, 31);
         setImage(image);
+    }
+    public void checkForWall()
+    {
+        WallE wallE = (WallE) getOneIntersectingObject(WallE.class);
+        if (wallE != null)
+        {
+             if(Greenfoot.isKeyDown("a"))
+             {
+                 setLocation(getX()+moveSpeed,getY());
+             }
+        }
+        WallN wallN = (WallN) getOneIntersectingObject(WallN.class);
+        if (wallN != null)
+        {
+             if(Greenfoot.isKeyDown("s"))
+             {
+                 setLocation(getX(),getY()-moveSpeed);
+             }
+        }
+        WallW wallW = (WallW) getOneIntersectingObject(WallW.class);
+        if (wallW != null)
+        {
+             if(Greenfoot.isKeyDown("d"))
+             {
+                 setLocation(getX()-moveSpeed,getY());
+             }
+        }
+        WallS wallS = (WallS) getOneIntersectingObject(WallS.class);
+        if (wallS != null)
+        {
+             if(Greenfoot.isKeyDown("w"))
+             {
+                 setLocation(getX(),getY()+moveSpeed);
+             }
+        }
     }
 }

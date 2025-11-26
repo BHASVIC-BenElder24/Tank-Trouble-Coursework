@@ -8,18 +8,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class PlayButton extends Actor
 {
-    /**
-     * Act - do whatever the PlayButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private boolean mouseOver = false;
+    
     public void act()
     {
-        // Add your action code here.
+        checkClick(new Level1());
     }
     public PlayButton()
     {
         GreenfootImage image = getImage();
         image.scale(145, 145);
         setImage(image);
+    }
+    public void checkClick(World world)
+    {
+        if(Greenfoot.mouseClicked(this))
+        {
+            Greenfoot.setWorld(world);
+        }
     }
 }
