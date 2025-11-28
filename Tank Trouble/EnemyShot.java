@@ -38,13 +38,16 @@ public class EnemyShot extends Actor
     {
         this.body = body;
         GreenfootImage image = getImage();
-        image.scale(15, 5);
+        image.scale(18, 6);
         setImage(image);
     }
     public void facePlayer()
     {
-        int playerX = body.getX();
-        int playerY = body.getY();
-        turnTowards(playerX, playerY);
+        if ((getWorld().getObjects(body.getClass()).contains(body)))
+        {
+            int playerX = body.getX();
+            int playerY = body.getY();
+            turnTowards(playerX, playerY);
+        }
     }
 }

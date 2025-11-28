@@ -12,7 +12,7 @@ public class PlayerShot extends Actor
     SimpleTimer destroyTimer = new SimpleTimer();
     public void act()
     {
-        move(5);
+        move(4);
         if(hasFacedMouse == false)
         {
             faceMouse();
@@ -36,7 +36,7 @@ public class PlayerShot extends Actor
     public PlayerShot()
     {
         GreenfootImage image = getImage();
-        image.scale(15, 5);
+        image.scale(18, 6);
         setImage(image);
         destroyTimer.mark();
     }

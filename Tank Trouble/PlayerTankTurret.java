@@ -100,7 +100,7 @@ public class PlayerTankTurret extends Actor
     {
         this.body = body;
         GreenfootImage image = getImage();
-        image.scale(45, 45);
+        image.scale(60, 60);
         setImage(image);
     }
 }

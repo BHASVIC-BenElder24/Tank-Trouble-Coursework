@@ -12,7 +12,7 @@ public class PlayerTankBody extends Actor
      * Act - do whatever the playertankbody wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    int moveSpeed = 4;
+    int moveSpeed = 3;
     boolean dead = false;
     public void act()
     {
@@ -26,6 +26,7 @@ public class PlayerTankBody extends Actor
             getWorld().removeObject(eShot);
             getWorld().removeObject(this);
             boolean dead = true;
+            reset(new Level1());
         }
         
         if (Greenfoot.isKeyDown("w"))
@@ -89,7 +90,7 @@ public class PlayerTankBody extends Actor
     public PlayerTankBody()
     {
         GreenfootImage image = getImage();
-        image.scale(36, 31);
+        image.scale(46, 41);
         setImage(image);
     }
     public void checkForWall()
@@ -126,5 +127,10 @@ public class PlayerTankBody extends Actor
                  setLocation(getX(),getY()+moveSpeed);
              }
         }
+    }
+    
+    public void reset(World world)
+    {
+        Greenfoot.setWorld(world);
     }
 }

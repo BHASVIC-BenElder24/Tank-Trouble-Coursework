@@ -30,11 +30,11 @@ public class EnemyTankTurret extends Actor
                 dead = true;
             }
         }
-        if (body != null && dead == false)
+        if ( getWorld() != null && (getWorld().getObjects(body.getClass()).contains(body)) && body != null)
         {
             turnTowards(body.getX(), body.getY());
         }
-        if (shotTimer.millisElapsed() > 1000)
+        if (shotTimer.millisElapsed() > 1500)
             {
                 getWorld().addObject(new EnemyShot(body), getX()-5, getY());
                 shotTimer.mark();
@@ -45,7 +45,7 @@ public class EnemyTankTurret extends Actor
         this.enemyBody = enemyBody;
         this.body = body;
         GreenfootImage image = getImage();
-        image.scale(45, 45);
+        image.scale(60, 60);
         setImage(image);
     }
 }

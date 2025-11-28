@@ -13,9 +13,12 @@ public class EnemyTankBody extends Actor
     private int IDnum;
     boolean dead = false;
     
-    ////////////////////////////////////////////////////////checks
+    ////////////////////////////////////////////////////////movement checks
     
     boolean reached1 = false;
+    boolean reached2 = false;
+    boolean reached3 = false;
+    boolean reached4 = false;
     
     public void act()
     {
@@ -50,10 +53,36 @@ public class EnemyTankBody extends Actor
                     reached1 = true;
                 }
             }
-            else
+            else if(reached2 == false)
             {
                 turnTowards(100, 500);
                 move(2);
+                if(getX() == 100 && getY() == 500)
+                {
+                    reached2 = true;
+                }
+            }
+        }
+        
+        if (num == 3 && dead == false)
+        {
+            if(reached3 == false)
+            {
+                turnTowards(100, 500);
+                move(2);
+                if(getX() == 100 && getY() == 500)
+                {
+                    reached3 = true;
+                }
+            }
+            else if(reached4 == false)
+            {
+                turnTowards(100, 300);
+                move(2);
+                if(getX() == 100 && getY() == 300)
+                {
+                    reached4 = true;
+                }
             }
         }
     }
@@ -62,7 +91,7 @@ public class EnemyTankBody extends Actor
         this.body = body;
         this.IDnum = IDnum;
         GreenfootImage image = getImage();
-        image.scale(36, 31);
+        image.scale(46, 41);
         setImage(image);
     }
 }
