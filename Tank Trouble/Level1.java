@@ -29,19 +29,34 @@ public class Level1 extends World
         PlayerTankTurret turret = new PlayerTankTurret(body);
         addObject(turret, body.getX(), body.getY());
         ////////////////////////////////////////////////////////enemies
-        EnemyTankBody enemyBody1 = new EnemyTankBody(body);
+        EnemyTankBody enemyBody1 = new EnemyTankBody(body, 1);
         addObject(enemyBody1, 600, 100);
         EnemyTankTurret enemyTurret1 = new EnemyTankTurret(enemyBody1, body);
         addObject(enemyTurret1, enemyBody1.getX(), enemyBody1.getY());
         
-        EnemyTankBody enemyBody2 = new EnemyTankBody(body);
+        EnemyTankBody enemyBody2 = new EnemyTankBody(body, 2);
         addObject(enemyBody2, 600, 300);
         EnemyTankTurret enemyTurret2 = new EnemyTankTurret(enemyBody2, body);
         addObject(enemyTurret2, enemyBody2.getX(), enemyBody2.getY());
         
-        EnemyTankBody enemyBody3 = new EnemyTankBody(body);
+        EnemyTankBody enemyBody3 = new EnemyTankBody(body, 3);
         addObject(enemyBody3, 600, 500);
         EnemyTankTurret enemyTurret3 = new EnemyTankTurret(enemyBody3, body);
         addObject(enemyTurret3, enemyBody3.getX(), enemyBody3.getY());
+        ////////////////////////////////////////////////////////walls
+        addObject(new WallN(), 300, 150);
+        
+        addObject(new WallS(), 300, 435);
+        
+        for (int x = 0; x < 3; x++)
+        {
+            addObject(new WallE(), 342, 193 + 100 * x);
+        }
+        
+        for (int x = 0; x < 3; x++)
+        {
+            addObject(new WallW(), 257, 193 + 100 * x);
+        }
+        ////////////////////////////////////////////////////////nodes
     }
 }

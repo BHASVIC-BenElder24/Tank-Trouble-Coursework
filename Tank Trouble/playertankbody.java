@@ -13,6 +13,7 @@ public class PlayerTankBody extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     int moveSpeed = 4;
+    boolean dead = false;
     public void act()
     {
         int directionx = 0;
@@ -24,6 +25,7 @@ public class PlayerTankBody extends Actor
         {
             getWorld().removeObject(eShot);
             getWorld().removeObject(this);
+            boolean dead = true;
         }
         
         if (Greenfoot.isKeyDown("w"))

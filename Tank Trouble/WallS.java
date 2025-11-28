@@ -20,11 +20,18 @@ public class WallS extends Actor
              int angle = shot.getRotation();
              shot.setRotation(-angle);
         }
+        
+        EnemyShot eShot = (EnemyShot) getOneIntersectingObject(EnemyShot.class);
+        if (eShot != null)
+        {
+            int angle = eShot.getRotation();
+             eShot.setRotation(-angle);
+        }
     }
     public WallS()
     {
         GreenfootImage image = getImage();
-        image.scale(100, 35);
+        image.scale(100, 15);
         setImage(image);
     }
 }
