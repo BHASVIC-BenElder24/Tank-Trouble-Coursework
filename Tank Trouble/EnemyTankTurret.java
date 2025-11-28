@@ -30,7 +30,7 @@ public class EnemyTankTurret extends Actor
                 dead = true;
             }
         }
-        if ( getWorld() != null && (getWorld().getObjects(body.getClass()).contains(body)) && body != null)
+        if (getWorld() != null && (getWorld().getObjects(body.getClass()).contains(body)) && body != null)
         {
             turnTowards(body.getX(), body.getY());
         }

@@ -43,6 +43,9 @@ public class Level1 extends World
         addObject(enemyBody3, 600, 500);
         EnemyTankTurret enemyTurret3 = new EnemyTankTurret(enemyBody3, body);
         addObject(enemyTurret3, enemyBody3.getX(), enemyBody3.getY());
+        ////////////////////////////////////////////////////////counter
+        Counter1 counter1 = new Counter1(enemyBody1, enemyBody2, enemyBody3);
+        addObject(counter1, 0,0);
         ////////////////////////////////////////////////////////walls
         addObject(new WallN(), 300, 150);
         

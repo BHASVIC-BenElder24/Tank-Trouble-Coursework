@@ -24,24 +24,6 @@ public class Level3 extends World
      */
     private void prepare()
     {
-        PlayerTankBody body = new PlayerTankBody();
-        addObject(body, 100, 100);
-        PlayerTankTurret turret = new PlayerTankTurret(body);
-        addObject(turret, body.getX(), body.getY());
-        ////////////////////////////////////////////////////////enemies
-        EnemyTankBody enemyBody1 = new EnemyTankBody(body, 1);
-        addObject(enemyBody1, 300, 200);
-        EnemyTankTurret enemyTurret1 = new EnemyTankTurret(enemyBody1, body);
-        addObject(enemyTurret1, enemyBody1.getX(), enemyBody1.getY());
         
-        EnemyTankBody enemyBody2 = new EnemyTankBody(body, 2);
-        addObject(enemyBody2, 400, 200);
-        EnemyTankTurret enemyTurret2 = new EnemyTankTurret(enemyBody2, body);
-        addObject(enemyTurret2, enemyBody2.getX(), enemyBody2.getY());
-        
-        EnemyTankBody enemyBody3 = new EnemyTankBody(body, 3);
-        addObject(enemyBody3, 500, 200);
-        EnemyTankTurret enemyTurret3 = new EnemyTankTurret(enemyBody3, body);
-        addObject(enemyTurret3, enemyBody3.getX(), enemyBody3.getY());
     }
 }
