@@ -47,19 +47,15 @@ public class Level1 extends World
         Counter1 counter1 = new Counter1(enemyBody1, enemyBody2, enemyBody3);
         addObject(counter1, 0,0);
         ////////////////////////////////////////////////////////walls
-        addObject(new WallN(), 300, 150);
         
-        addObject(new WallS(), 300, 435);
+        addObject(new WallN(100,15), 300, 150);
         
-        for (int x = 0; x < 3; x++)
-        {
-            addObject(new WallE(), 342, 193 + 100 * x);
-        }
+        addObject(new WallS(100,15), 300, 435);
+
+        addObject(new WallE(15 , 300), 342, 293);
         
-        for (int x = 0; x < 3; x++)
-        {
-            addObject(new WallW(), 257, 193 + 100 * x);
-        }
+        addObject(new WallW(15,300), 257, 293);
+        
         ////////////////////////////////////////////////////////nodes
     }
 }

@@ -28,10 +28,10 @@ public class WallN extends Actor
              eShot.setRotation(-angle);
         }
     }
-    public WallN()
+    public WallN(int x, int y)
     {
         GreenfootImage image = getImage();
-        image.scale(100, 15);
+        image.scale(x, y);
         setImage(image);
     }
 }

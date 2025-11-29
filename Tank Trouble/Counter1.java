@@ -18,9 +18,7 @@ public class Counter1 extends Actor
     public void act()
     {
         checkVictory();
-        checkEnemy1();
-        checkEnemy2();
-        checkEnemy3();
+        checkEnemies();
     }
     public void checkVictory()
     {
@@ -28,12 +26,8 @@ public class Counter1 extends Actor
         {
             Greenfoot.setWorld(new Level2());
         }
-        //else if()
-        //{
-        //    Greenfoot.setWorld(new Level3());
-        //}
     }
-    public void checkEnemy1()
+    public void checkEnemies()
     {
         if (getWorld() != null && getWorld().getObjects(enemyBody1.getClass()).contains(enemyBody1))
         {
@@ -43,9 +37,7 @@ public class Counter1 extends Actor
         {
             enemy1Alive = false;
         }
-    }
-    public void checkEnemy2()
-    {
+        
         if (getWorld() != null && getWorld().getObjects(enemyBody2.getClass()).contains(enemyBody2))
         {
             enemy2Alive = true;
@@ -54,9 +46,7 @@ public class Counter1 extends Actor
         {
             enemy2Alive = false;
         }
-    }
-    public void checkEnemy3()
-    {
+        
         if (getWorld() != null && getWorld().getObjects(enemyBody3.getClass()).contains(enemyBody3))
         {
             enemy3Alive = true;
@@ -71,5 +61,8 @@ public class Counter1 extends Actor
         this.enemyBody1 = enemyBody1;
         this.enemyBody2 = enemyBody2;
         this.enemyBody3 = enemyBody3;
+        enemyBody1.level = 1;
+        enemyBody2.level = 1;
+        enemyBody3.level = 1;
     }
 }

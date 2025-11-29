@@ -29,6 +29,5 @@ public class Testing extends World
         PlayerTankTurret turret = new PlayerTankTurret(body);
         addObject(turret, body.getX(), body.getY());
         ////////////////////////////////////////////////////////enemies
-        
     }
 }
