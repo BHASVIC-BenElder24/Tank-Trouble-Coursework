@@ -55,6 +55,37 @@ public class BigEnemyTankBody extends Actor
                 reached1 = true;
             }
         }
+        
+        /////////////////////////////////////////////level 3 movement
+        
+        else if(level == 3 && dead == false)
+        {
+            if (num == 1 && dead == false)
+            {
+                if(reached1 == false)
+                {
+                    turnTowards(575, 210);
+                    move(2);
+                }
+                if(getX() == 575 && getY() == 210)
+                {
+                    reached1 = true;
+                }
+            }
+            
+            if (num == 2 && dead == false)
+            {
+                if(reached1 == false)
+                {
+                    turnTowards(230, 395);
+                    move(2);
+                }
+                if(getX() == 230 && getY() == 396)
+                {
+                    reached1 = true;
+                }
+            }
+        }
     }
     public BigEnemyTankBody(PlayerTankBody body, int IDnum)
     {

@@ -20,14 +20,6 @@ public class EnemyTankBody extends Actor
     boolean reached2 = false;
     boolean reached3 = false;
     boolean reached4 = false;
-    boolean reached5 = false;
-    boolean reached6 = false;
-    boolean reached7 = false;
-    boolean reached8 = false;
-    boolean reached9 = false;
-    boolean reached10 = false;
-    boolean reached11 = false;
-    boolean reached12 = false;
 
     public void act()
     {
@@ -371,6 +363,63 @@ public class EnemyTankBody extends Actor
                             reached2 = false;
                         }
                     }
+                }
+            }
+        }
+        
+        /////////////////////////////////////////////level 3 movement
+        
+        else if(level == 3)
+        {
+            if (num == 1 && dead == false)
+            {
+                if(reached1 == false)
+                {
+                    turnTowards(50, 550);
+                    move(2);
+                }
+                if(getX() == 50 && getY() == 550)
+                {
+                    reached1 = true;
+                }
+            }
+            
+            if (num == 2 && dead == false)
+            {
+                if(reached1 == false)
+                {
+                    turnTowards(450, 50);
+                    move(2);
+                }
+                if(getX() == 449 && getY() == 50)
+                {
+                    reached1 = true;
+                }
+            }
+            
+            if (num == 3 && dead == false)
+            {
+                if(reached1 == false)
+                {
+                    turnTowards(725, 50);
+                    move(2);
+                }
+                if(getX() == 725 && getY() == 49)
+                {
+                    reached1 = true;
+                }
+            }
+            
+            if (num == 4 && dead == false)
+            {
+                if(reached1 == false)
+                {
+                    turnTowards(350, 550);
+                    move(2);
+                }
+                if(getX() == 349 && getY() == 550)
+                {
+                    reached1 = true;
                 }
             }
         }

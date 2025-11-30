@@ -34,7 +34,7 @@ public class BigEnemyTankTurret extends Actor
         {
             turnTowards(body.getX(), body.getY());
         }
-        if (shotTimer.millisElapsed() > 1500 && enemyBody != null)
+        if (shotTimer.millisElapsed() > 1500 && enemyBody != null && getWorld().getObjects(enemyBody.getClass()).contains(enemyBody))
             {
                 getWorld().addObject(new BigEnemyShot(body), getX()-5, getY());
                 shotTimer.mark();
