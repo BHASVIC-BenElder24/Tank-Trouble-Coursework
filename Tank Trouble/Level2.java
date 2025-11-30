@@ -48,8 +48,13 @@ public class Level2 extends World
         addObject(enemyBody4, 500, 550);
         EnemyTankTurret enemyTurret4 = new EnemyTankTurret(enemyBody4, body);
         addObject(enemyTurret4, enemyBody4.getX(), enemyBody4.getY());
+        
+        BigEnemyTankBody enemyBody5 = new BigEnemyTankBody(body, 1);
+        addObject(enemyBody5, 750, 300);
+        BigEnemyTankTurret enemyTurret5 = new BigEnemyTankTurret(enemyBody5, body);
+        addObject(enemyTurret5, enemyBody5.getX(), enemyBody5.getY());
         ////////////////////////////////////////////////////////counter
-        Counter2 counter2 = new Counter2(enemyBody1, enemyBody2, enemyBody3, enemyBody4);
+        Counter2 counter2 = new Counter2(enemyBody1, enemyBody2, enemyBody3, enemyBody4, enemyBody5);
         addObject(counter2, 0,0);
         ////////////////////////////////////////////////////////walls
         
@@ -61,15 +66,19 @@ public class Level2 extends World
         
         addObject(new WallW(15,140), 132, 163);
         
+        addObject(new Wall(100,150), 175, 163);
+        
         ////////////////////////////////////////////////////////////////////
         
         addObject(new WallN(100,15), 175, 375);
         
         addObject(new WallS(100,15), 175, 500);
         
-        addObject(new WallE(15,140), 668, 163);
+        addObject(new WallE(15,140), 217, 438);
         
-        addObject(new WallW(15,140), 582, 163);
+        addObject(new WallW(15,140), 132, 438);
+        
+        addObject(new Wall(100,150), 175, 438);
         
         ////////////////////////////////////////////////////////////////////
         
@@ -77,13 +86,11 @@ public class Level2 extends World
         
         addObject(new WallS(100,15), 625, 225);
         
-        addObject(new WallE(15,140), 217, 438);
-        
-        addObject(new WallW(15,140), 132, 438);
-        
         addObject(new WallE(15,140), 668, 163);
         
         addObject(new WallW(15,140), 582, 163);
+        
+        addObject(new Wall(101,150), 625, 163);
         
         ////////////////////////////////////////////////////////////////////
         
@@ -94,6 +101,8 @@ public class Level2 extends World
         addObject(new WallE(15,140), 668, 438);
         
         addObject(new WallW(15,140), 582, 438);
+        
+        addObject(new Wall(101,150), 625, 438);
         
         ////////////////////////////////////////////////////////nodes
     }

@@ -14,24 +14,12 @@ public class Wall extends Actor
      */
     public void act()
     {
-        PlayerShot shot = (PlayerShot) getOneIntersectingObject(PlayerShot.class);
-        if (shot != null)
-        {
-             int angle = shot.getRotation();
-             if (angle > 180 && angle < 360)
-             {
-                 shot.setRotation(180 - angle);
-             }
-             if (angle < 180 && angle > 0)
-             {
-                 shot.setRotation(-angle);
-             }
-        }
+        
     }
-    public Wall()
+    public Wall(int x, int y)
     {
         GreenfootImage image = getImage();
-        image.scale(100, 50);
+        image.scale(x, y);
         setImage(image);
     }
 }

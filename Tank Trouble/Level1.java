@@ -56,6 +56,8 @@ public class Level1 extends World
         
         addObject(new WallW(15,300), 257, 293);
         
+        addObject(new Wall(100,300), 300, 293);
+        
         ////////////////////////////////////////////////////////nodes
     }
 }

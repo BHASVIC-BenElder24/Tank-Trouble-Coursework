@@ -29,5 +29,14 @@ public class Testing extends World
         PlayerTankTurret turret = new PlayerTankTurret(body);
         addObject(turret, body.getX(), body.getY());
         ////////////////////////////////////////////////////////enemies
+        BigEnemyTankBody enemyBody1 = new BigEnemyTankBody(body, 1);
+        addObject(enemyBody1, 600, 100);
+        BigEnemyTankTurret enemyTurret1 = new BigEnemyTankTurret(enemyBody1, body);
+        addObject(enemyTurret1, enemyBody1.getX(), enemyBody1.getY());
+        
+        EnemyTankBody enemyBody2 = new EnemyTankBody(body, 1);
+        addObject(enemyBody2, 600, 400);
+        EnemyTankTurret enemyTurret2 = new EnemyTankTurret(enemyBody2, body);
+        addObject(enemyTurret2, enemyBody2.getX(), enemyBody2.getY());
     }
 }

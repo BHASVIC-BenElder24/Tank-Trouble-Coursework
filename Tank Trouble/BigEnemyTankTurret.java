@@ -1,19 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EnemyTankTurret here.
+ * Write a description of class BigEnemyTankTurret here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class EnemyTankTurret extends Actor
+public class BigEnemyTankTurret extends Actor
 {
-    private EnemyTankBody enemyBody;
+    private BigEnemyTankBody enemyBody;
     private PlayerTankBody body;
     SimpleTimer shotTimer = new SimpleTimer();
     boolean dead = false;
     /**
-     * Act - do whatever the EnemyTankTurret wants to do. This method is called whenever
+     * Act - do whatever the BigEnemyTankTurret wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
@@ -36,16 +36,16 @@ public class EnemyTankTurret extends Actor
         }
         if (shotTimer.millisElapsed() > 1500 && enemyBody != null)
             {
-                getWorld().addObject(new EnemyShot(body), getX()-5, getY());
+                getWorld().addObject(new BigEnemyShot(body), getX()-5, getY());
                 shotTimer.mark();
             }
     }
-    public EnemyTankTurret(EnemyTankBody enemyBody, PlayerTankBody body)
+    public BigEnemyTankTurret(BigEnemyTankBody enemyBody, PlayerTankBody body)
     {
         this.enemyBody = enemyBody;
         this.body = body;
         GreenfootImage image = getImage();
-        image.scale(60, 60);
+        image.scale(80, 40);
         setImage(image);
     }
 }

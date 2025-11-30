@@ -19,5 +19,8 @@ public class MainMenu extends World
         
         PlayButton play = new PlayButton();
         addObject(play, 400, 350);
+        
+        LevelSelect levelSelect = new LevelSelect();
+        addObject(levelSelect, 400, 500);
     }
 }

@@ -14,6 +14,7 @@ public class PlayerTankBody extends Actor
      */
     int moveSpeed = 3;
     boolean dead = false;
+    boolean godMode = false;
     public void act()
     {
         int directionx = 0;
@@ -21,10 +22,19 @@ public class PlayerTankBody extends Actor
         checkForWall();
         
         EnemyShot eShot = (EnemyShot) getOneIntersectingObject(EnemyShot.class);
-        if (eShot != null)
+        if (eShot != null && godMode == false)
         {
-            getWorld().removeObject(eShot);
-            getWorld().removeObject(this);
+            //getWorld().removeObject(eShot);
+            //getWorld().removeObject(this);
+            boolean dead = true;
+            reset(new Level1());
+        }
+        
+        BigEnemyShot eShot2 = (BigEnemyShot) getOneIntersectingObject(BigEnemyShot.class);
+        if (eShot2 != null && godMode == false)
+        {
+            //getWorld().removeObject(eShot2);
+            //getWorld().removeObject(this);
             boolean dead = true;
             reset(new Level1());
         }
@@ -85,6 +95,11 @@ public class PlayerTankBody extends Actor
         {
             setRotation(225);
             move(moveSpeed);
+        }
+        
+        if (Greenfoot.isKeyDown("g"))
+        {
+            godMode = true;
         }
     }
     public PlayerTankBody()

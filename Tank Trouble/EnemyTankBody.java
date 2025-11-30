@@ -148,20 +148,227 @@ public class EnemyTankBody extends Actor
                 {
                     if(reached2 == false && reached3 == false)
                     {
+                        reached1 = false;
                         turnTowards(65, 50);
                         move(2);
-                        if(getX() == 65 && getY() == 50)
+                        if(getX() == 64 && getY() == 50 || getX() == 65 && getY() == 50)
                         {
                             reached2 = true;
                         }
                     }
                     else if(reached3 == false && reached2 == true)
                     {
+                        reached1 = false;
                         turnTowards(65, 270);
                         move(2);
                         if(getX() == 65 && getY() == 270)
                         {
                             reached3 = true;
+                        }
+                    }
+                }
+                if(body.getX() > 175)
+                {
+                    if(reached1 == false && reached2 == false)
+                    {
+                        turnTowards(300, 50);
+                        move(2);
+                        if(getX() == 301 && getY() == 50 || getX() == 300 && getY() == 50)
+                        {
+                            reached1 = true;
+                        }
+                    }
+                    else if(reached3 == false && reached2 == true)
+                    {
+                        turnTowards(65, 50);
+                        move(2);
+                        if(getX() == 65 && getY() == 50)
+                        {
+                            reached2 = false;
+                        }
+                    }
+                    else if(reached3 == true && reached2 == true)
+                    {
+                        reached3 = false;
+                        turnTowards(65, 50);
+                        move(2);
+                        if(getX() == 65 && getY() == 50)
+                        {
+                            reached2 = false;
+                        }
+                    }
+                }
+            }
+            
+            if (num == 2 && dead == false)
+            {
+                if(body.getX() > 625)
+                {
+                    if(reached2 == false && reached3 == false)
+                    {
+                        reached1 = false;
+                        turnTowards(735, 50);
+                        move(2);
+                        if(getX() == 736 && getY() == 50 || getX() == 735 && getY() == 50)
+                        {
+                            reached2 = true;
+                        }
+                    }
+                    else if(reached3 == false && reached2 == true)
+                    {
+                        reached1 = false;
+                        turnTowards(735, 270);
+                        move(2);
+                        if(getX() == 735 && getY() == 270)
+                        {
+                            reached3 = true;
+                        }
+                    }
+                }
+                if(body.getX() < 625)
+                {
+                    if(reached1 == false && reached2 == false)
+                    {
+                        turnTowards(500, 50);
+                        move(2);
+                        if(getX() == 499 && getY() == 50 || getX() == 500 && getY() == 50)
+                        {
+                            reached1 = true;
+                        }
+                    }
+                    else if(reached3 == false && reached2 == true)
+                    {
+                        turnTowards(735, 50);
+                        move(2);
+                        if(getX() == 735 && getY() == 50)
+                        {
+                            reached2 = false;
+                        }
+                    }
+                    else if(reached3 == true && reached2 == true)
+                    {
+                        reached3 = false;
+                        turnTowards(735, 50);
+                        move(2);
+                        if(getX() == 735 && getY() == 50)
+                        {
+                            reached2 = false;
+                        }
+                    }
+                }
+            }
+            
+            if (num == 3 && dead == false)
+            {
+                if(body.getX() < 175)
+                {
+                    if(reached2 == false && reached3 == false)
+                    {
+                        reached1 = false;
+                        turnTowards(65, 550);
+                        move(2);
+                        if(getX() == 64 && getY() == 550 || getX() == 65 && getY() == 550)
+                        {
+                            reached2 = true;
+                        }
+                    }
+                    else if(reached3 == false && reached2 == true)
+                    {
+                        reached1 = false;
+                        turnTowards(65, 330);
+                        move(2);
+                        if(getX() == 65 && getY() == 330)
+                        {
+                            reached3 = true;
+                        }
+                    }
+                }
+                if(body.getX() > 175)
+                {
+                    if(reached1 == false && reached2 == false)
+                    {
+                        turnTowards(300, 550);
+                        move(2);
+                        if(getX() == 301 && getY() == 550 || getX() == 300 && getY() == 550)
+                        {
+                            reached1 = true;
+                        }
+                    }
+                    else if(reached3 == false && reached2 == true)
+                    {
+                        turnTowards(65, 550);
+                        move(2);
+                        if(getX() == 65 && getY() == 550)
+                        {
+                            reached2 = false;
+                        }
+                    }
+                    else if(reached3 == true && reached2 == true)
+                    {
+                        reached3 = false;
+                        turnTowards(65, 550);
+                        move(2);
+                        if(getX() == 65 && getY() == 550)
+                        {
+                            reached2 = false;
+                        }
+                    }
+                }
+            }
+            
+            if (num == 4 && dead == false)
+            {
+                if(body.getX() > 625)
+                {
+                    if(reached2 == false && reached3 == false)
+                    {
+                        reached1 = false;
+                        turnTowards(735, 550);
+                        move(2);
+                        if(getX() == 736 && getY() == 550 || getX() == 735 && getY() == 550)
+                        {
+                            reached2 = true;
+                        }
+                    }
+                    else if(reached3 == false && reached2 == true)
+                    {
+                        reached1 = false;
+                        turnTowards(735, 330);
+                        move(2);
+                        if(getX() == 735 && getY() == 330)
+                        {
+                            reached3 = true;
+                        }
+                    }
+                }
+                if(body.getX() < 625)
+                {
+                    if(reached1 == false && reached2 == false)
+                    {
+                        turnTowards(500, 550);
+                        move(2);
+                        if(getX() == 499 && getY() == 550 || getX() == 500 && getY() == 550)
+                        {
+                            reached1 = true;
+                        }
+                    }
+                    else if(reached3 == false && reached2 == true)
+                    {
+                        turnTowards(735, 550);
+                        move(2);
+                        if(getX() == 735 && getY() == 550)
+                        {
+                            reached2 = false;
+                        }
+                    }
+                    else if(reached3 == true && reached2 == true)
+                    {
+                        reached3 = false;
+                        turnTowards(735, 550);
+                        move(2);
+                        if(getX() == 735 && getY() == 550)
+                        {
+                            reached2 = false;
                         }
                     }
                 }

@@ -27,6 +27,13 @@ public class WallE extends Actor
             int angle = eShot.getRotation();
              eShot.setRotation(180 - angle);
         }
+        
+        BigEnemyShot eShot2 = (BigEnemyShot) getOneIntersectingObject(BigEnemyShot.class);
+        if (eShot2 != null)
+        {
+            int angle = eShot2.getRotation();
+             eShot2.setRotation(180 - angle);
+        }
     }
     public WallE(int x, int y)
     {
