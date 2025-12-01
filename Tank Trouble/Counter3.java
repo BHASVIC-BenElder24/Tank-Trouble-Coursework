@@ -30,7 +30,7 @@ public class Counter3 extends Actor
     {
         if(enemy1Alive == false && enemy2Alive == false && enemy3Alive == false)
         {
-            Greenfoot.setWorld(new Level3());
+            Greenfoot.setWorld(new MainMenu());
         }
     }
     public void checkEnemies()
